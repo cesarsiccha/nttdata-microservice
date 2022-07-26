@@ -20,39 +20,33 @@ public class BootcoinController {
 	@Autowired
     BootcoinService bootcoinService;
 	
-	@PostMapping(value = "/CurrencyChange/{typechange}")
-    public Mono<BootCoin> Currency_Change(@PathVariable("typechange") double typechange) {
-        //List all Commissions
+	@PostMapping(value = "/NewChange/{typechange}")
+    public Mono<BootCoin> NewChange(@PathVariable("typechange") double typechange) {
         return bootcoinService.NewChange(typechange);
     }
 	
-	@GetMapping(value = "/Inquiry")
+	@GetMapping(value = "/ListById")
     public Mono<BootCoin> ListById() {
-        //List all Commissions
         return bootcoinService.ListById();
     }
 	
-	@GetMapping(value = "/InquiryAll")
-    public Flux<BootCoin> InquiryAll() {
-        //List all Commissions
+	@GetMapping(value = "/listAll")
+    public Flux<BootCoin> ListAll() {
         return bootcoinService.ListAll();
     }
 	
 	@PostMapping(value = "/RegistryUser")
-    public String Registry_User(@RequestBody Client client) {
-        //List all Commissions
+    public String RegisterUser(@RequestBody Client client) {
         return bootcoinService.RegisterUser(client);
     }
 
     @PostMapping(value = "/BuyBootCoin")
-    public String Buy_BootCoin(@RequestBody Transaction transaction) {
-        //List all Commissions
+    public String BuyBootCoin(@RequestBody Transaction transaction) {
         return bootcoinService.BuyBootCoin(transaction);
     }
 
     @PostMapping(value = "/SellBootCoin")
     public String Sold_BootCoin(@RequestBody Transaction transaction) {
-        //List all Commissions
         return bootcoinService.SellBootCoin(transaction);
     }
 	

@@ -1,6 +1,5 @@
 package com.bootcamp.bootcoin.service;
 
-import java.util.Date;
 import java.util.UUID;
 
 import com.bootcamp.bootcoin.model.Client;
