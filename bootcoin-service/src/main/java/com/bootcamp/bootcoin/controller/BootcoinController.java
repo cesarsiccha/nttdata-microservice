@@ -30,22 +30,22 @@ public class BootcoinController {
         return bootcoinService.ListById();
     }
 	
-	@GetMapping(value = "/listAll")
+	@GetMapping(value = "/ListAll")
     public Flux<BootCoin> ListAll() {
         return bootcoinService.ListAll();
     }
 	
-	@PostMapping(value = "/RegistryUser")
+	@PostMapping(value = "/Register")
     public String RegisterUser(@RequestBody Client client) {
         return bootcoinService.RegisterUser(client);
     }
 
-    @PostMapping(value = "/BuyBootCoin")
+    @PostMapping(value = "/Buy")
     public String BuyBootCoin(@RequestBody Transaction transaction) {
         return bootcoinService.BuyBootCoin(transaction);
     }
 
-    @PostMapping(value = "/SellBootCoin")
+    @PostMapping(value = "/Sell")
     public String Sold_BootCoin(@RequestBody Transaction transaction) {
         return bootcoinService.SellBootCoin(transaction);
     }

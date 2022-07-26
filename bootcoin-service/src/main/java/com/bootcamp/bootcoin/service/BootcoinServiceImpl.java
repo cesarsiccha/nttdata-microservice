@@ -62,25 +62,25 @@ public class BootcoinServiceImpl implements BootcoinService {
 	@Override
 	public Mono<BootCoin> ListById() {
 		AggregationResults<BootCoin> resultsAll = ResultAll();
-		
-		Mono<BootCoin> Mbc;
-		
+
+		Mono<BootCoin> bootCoinMono;
+
 		try {
-			Mbc = Mono.just(resultsAll.getMappedResults().get(0));
+			bootCoinMono = Mono.just(resultsAll.getMappedResults().get(0));
 		}catch(Exception e){
-			Mbc=null;
+			bootCoinMono=null;
 		}
-		
-		return Mbc;
-		
+
+		return bootCoinMono;
+
 	}
-	
+
 	private AggregationResults<BootCoin> ResultAll(){
 		SortOperation sortOperation = Aggregation.sort(Sort.by(Sort.Direction.DESC,"DateCreate"));
 		Aggregation aggregationAll = Aggregation.newAggregation(sortOperation);
 		AggregationResults<BootCoin> resultsAll =
 				mongoTemplate.aggregate(aggregationAll,"BootCoin", BootCoin.class);
-		
+
 		return resultsAll;
 	}
 
@@ -111,7 +111,7 @@ public class BootcoinServiceImpl implements BootcoinService {
 
 		this.producer.send(message);
 		
-		return "User registry";
+		return "Registry successful";
 	}
 
 	@Override
